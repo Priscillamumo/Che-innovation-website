@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .gallery-item img {
+      width: 100%;
+      height: 200px; /* Fixed height */
+      object-fit: cover; /* Ensures the image covers the area, maintaining aspect ratio */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .lightbox-content {
+      position: relative;
+      margin: auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #ffffff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .lightbox-image {
+      width: 100%;
+      height: 80vh; /* Maintain a consistent height */
+      object-fit: cover; /* Ensures the image covers the area, maintaining aspect ratio */
+    }
+
+    .fixed-navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    .font-dancing-script {
+      font-family: 'Dancing Script', cursive;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+   <!-- Navigation -->
+   <nav class="bg-purple-500 text-white py-4 fixed-navbar">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold font-dancing-script">Che Innovations Uganda Limited</a>
+      <div class="md:hidden">
+        <button id="navbar-toggle" class="focus:outline-none">
+          <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      <ul id="navbar-menu" class="hidden md:flex space-x-6">
+        <li><a href="index.html" class="hover:text-green-400 font-dancing-script">Home</a></li>
+
+        <li><a href="index.html#about-us" class="hover:text-green-400 font-dancing-script">About</a></li>
+        <li class="relative group">
+            <button id="neo-dropdown" class="hover:text-green-400 focus:outline-none font-dancing-script">NeoNest <i class="fas fa-caret-down"></i></button>
+            <ul id="neo-menu" class="absolute left-0 hidden mt-1 bg-white text-black shadow-lg group-hover:block font-dancing-script">
+              <li><a href="index.html#problem" class="block px-4 py-2 hover:bg-gray-200 font-dancing-script">Problem</a></li>
+              <li><a href="index.html#solution" class="block px-4 py-2 hover:bg-gray-200 font-dancing-script">Solution</a></li>
+            </ul>
+          </li>
+        <li><a href="index.html#impact" class="hover:text-green-400 font-dancing-script">Impact</a></li>
+        <li><a href="index.html#team" class="hover:text-green-400 font-dancing-script">Team</a></li>
+
+        <li><a href="index.html#partners" class="hover:text-green-400 font-dancing-script">Partners</a></li>
+        <li><a href="gallery.html" class="hover:text-green-400 font-dancing-script">Media</a></li>
+        <li><a href="index.html#contact" class="hover:text-green-400 font-dancing-script">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="pt-20 pb-10">
+    <div class="container mx-auto pt-24">
+      <h2 class="text-6xl font-bold text-center mb-12 text-purple-700 font-dancing-script">Our Gallery</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery1.jpg" alt="Gallery Image 1" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(1)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery2.jpg" alt="Gallery Image 2" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(2)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery3.jpg" alt="Gallery Image 3" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(3)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery4.jpg" alt="Gallery Image 4" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(4)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery5.jpg" alt="Gallery Image 5" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(5)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery6.jpg" alt="Gallery Image 6" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(6)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery7.jpg" alt="Gallery Image 7" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(7)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery8.jpg" alt="Gallery Image 8" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(8)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery9.jpg" alt="Gallery Image 9" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(9)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery10.jpg" alt="Gallery Image 10" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(10)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery11.jpg" alt="Gallery Image 11" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(11)">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg gallery-item">
+          <img src="./Website Photos/gallery12.jpg" alt="Gallery Image 12" class="w-full cursor-pointer" onclick="openLightbox(); currentSlide(12)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close cursor-pointer" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-content">
+      <div class="mySlides">
+        <img src="./Website Photos/gallery1.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery2.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery3.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery4.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery5.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery6.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery7.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery8.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery9.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery10.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery11.jpg" class="lightbox-image">
+      </div>
+      <div class="mySlides">
+        <img src="./Website Photos/gallery12.jpg" class="lightbox-image">
+      </div>
+
+      <a class="prev cursor-pointer" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next cursor-pointer" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+  </div>
+  <!-- Footer -->
+ <footer class="bg-gradient-to-r from-purple-700 to-black text-white py-8">
+    <div class="container mx-auto flex flex-wrap justify-between">
+      <div class="w-full lg:w-1/3 p-4">
+        <h3 class="text-lg font-semibold mb-4">Che Innovations Uganda Limited</h3>
+        <div class="flex space-x-4">
+          <a href="https://www.facebook.com/profile.php?id=61561968205266" class="hover:text-gray-300"><i class="fab fa-facebook-square text-2xl"></i></a>
+          <a href="https://x.com/CheInnovations" class="hover:text-gray-300"><i class="fab fa-twitter-square text-2xl"></i></a>
+          <a href="https://www.instagram.com/che_innovations?igsh=YzljYTk1ODg3Zg==" class="hover:text-gray-300"><i class="fab fa-instagram-square text-2xl"></i></a>
+          <a href="https://www.linkedin.com/company/che-innovations" class="hover:text-gray-300"><i class="fab fa-linkedin text-2xl"></i></a>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/3 p-4">
+        <h3 class="text-lg font-semibold mb-4">Navigation</h3>
+        <ul class="flex flex-col space-y-2 text-sm">
+          <li><a href="#about-us" class="hover:text-green-400">About</a></li>
+          <li><a href="#problem" class="hover:text-green-400">Problem</a></li>
+          <li><a href="#solution" class="hover:text-green-400">Solution</a></li>
+          <li><a href="#impact" class="hover:text-green-400">impact</a></li>
+
+          <li><a href="#team" class="hover:text-green-400">Team</a></li>
+          <li><a href="#partners" class="hover:text-green-400">Partners</a></li>
+          <li><a href="#contact" class="hover:text-green-400">Contact</a></li>
+        </ul>
+      </div>
+      <div class="w-full lg:w-1/3 p-4">
+        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+        <p class="text-sm"><strong>Address:</strong> Upper Hill Mulago, College Of Health Sciences, P.O Box 7062, Kampala Uganda</p>
+        <p class="text-sm"><strong>Phone:</strong> +256 778 526 594 / +256 752 465 308</p>
+        <p class="text-sm"><strong>Email:</strong> cheinnovationsuganda@gmail.com</p>
+      </div>
+    </div>
+    <div class="text-center mt-8">
+      <p class="text-sm">&copy; 2024 Che Innovations Uganda Limited. All rights reserved.</p>
+    </div>
+  </footer>
+
+ 
+  <script>
+    document.getElementById('navbar-toggle').addEventListener('click', function () {
+      var menu = document.getElementById('navbar-menu');
+      var icon = document.getElementById('menu-icon');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        menu.classList.add('hidden');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+    document.getElementById('neo-dropdown').addEventListener('click', function() {
+      var menu = document.getElementById('neo-menu');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+      }
+    });
+
+    // Lightbox functionality
+    var slideIndex = 1;
+
+    function openLightbox() {
+      document.getElementById('lightbox').style.display = 'block';
+      showSlides(slideIndex);
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    function changeSlide(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var slides = document.getElementsByClassName('mySlides');
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      slides[slideIndex - 1].style.display = 'block';
+    }
+  </script>
+</body>
+</html>
