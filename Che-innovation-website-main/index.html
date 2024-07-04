@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Che Innovations Uganda Limited</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    .bg-purple-700 { background-color: #6b21a8; }
+    .bg-green-700 { background-color: #047857; }
+    body {
+      font-family: 'Raleway', sans-serif;
+      font-size: large;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .fixed-navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDelay {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .animate-fade-in-delay {
+      animation: fadeInDelay 2s ease-out forwards;
+    }
+
+    .animate-slide-in-left {
+      animation: slideInLeft 1s ease-out forwards;
+    }
+
+    .animate-bounce-in {
+      animation: bounceIn 1s ease-out forwards;
+    }
+
+    .animate {
+      animation: none;
+    }
+
+    @keyframes slideInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .animate-slide-in-up {
+      animation: slideInUp 2s ease-out forwards;
+    }
+    .note {
+      position: relative;
+      padding: 20px;
+      margin: 10px 0;
+      background: #fff;
+      border-left: 6px solid #6b21a8;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .note:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .rounded-full {
+      border-radius: 50%;
+    }
+    .shadow-lg {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    .hover\:shadow-2xl:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .transition-transform {
+      transition: transform 0.3s;
+    }
+    .transform {
+      transform: translateY(0);
+    }
+    .hover\:scale-105:hover {
+      transform: scale(1.05);
+    }
+    .font-dancing-script {
+      font-family: 'Dancing Script', cursive;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    .animate-slide-in-left {
+      animation: slideInLeft 1.5s ease-out forwards;
+    }
+
+    .hidden-animation {
+      opacity: 0;
+    }
+    .font {
+      font-family: arial black;
+    }
+
+  
+    
+  </style>
+</head>
+<body class="font-sans bg-gray-100">
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+
+
+  <!-- Navigation -->
+  <nav class="bg-orange-700 text-white py-4 fixed-navbar">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold font">Che Innovations Uganda Limited</a>
+      <div class="md:hidden">
+        <button id="navbar-toggle" class="focus:outline-none">
+          <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      <ul id="navbar-menu" class="hidden md:flex space-x-6 font">
+        <li><a href="#about-us" class="hover:text-green-400 font">About</a></li>
+        <li class="relative group">
+          <button id="neo-dropdown" class="hover:text-green-400 focus:outline-none font">NeoNest <i class="fas fa-caret-down"></i></button>
+          <ul id="neo-menu" class="absolute left-0 hidden mt-1 bg-white text-black shadow-lg group-hover:block font">
+            <li><a href="index.html#problem" class="block px-4 py-2 hover:bg-gray-200 font">Problem</a></li>
+            <li><a href="index.html#solution" class="block px-4 py-2 hover:bg-gray-200 font">Solution</a></li>
+          </ul>
+        </li>
+        <li><a href="#impact" class="hover:text-green-400 font">Impact</a></li>
+
+        <li><a href="#team" class="hover:text-green-400 font">Team</a></li>
+        <li><a href="#partners" class="hover:text-green-400 font">Partners </a></li>
+        <li><a href="gallery.html" class="hover:text-green-400 font">Media</a></li>
+
+        <li><a href="#contact" class="hover:text-green-400 font">Contact</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Add Font Awesome for the hamburger icon -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Hero Section -->
+<section id="hero" class="bg-purple-700 text-white text-center bg-fixed py-20 min-h-screen flex items-center bg-cover" style="background-image: url('./assets/che_logo_black-transformed.jpeg'); background-size: 130%; background-position: left center;">
+  <div class="container mx-auto flex flex-col lg:flex-row items-left lg:justify-between py-10">
+    <div class="lg:w-1/2 px-8 text-left animate-fade-in" style="margin-left: 0%; padding-left: 20px;">
+      <h1 class="text-4xl font-bold animate-slide-in-left text-orange-500 font">Che</h1>
+      <p class="mt-4 text-lg animate-fade-in-delay">Che Innovations Uganda Limited catalyzes engineering innovations in Uganda, focusing on locally made medical devices to provide affordable healthcare solutions.</p>
+      <p class="mt-4 text-lg animate-fade-in-delay">Our flagship product, NeoNest, is a low-cost infant warmer to prevent preterm hypothermia during ambulance trips in low- and middle-income countries.</p>
+      <br>
+      <div>
+        <a href="#about-us" class="bg-orange-700 text-white mt-4 px-6 py-3 rounded-md shadow-md hover:bg-orange-700">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ <!-- About Che Section -->
+ <section id="about-us" class="py-20 bg-gray-100">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12 text-orange-700 font">About us</h2>
+    <div class="bg-white text-black rounded-lg p-8 shadow-lg">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div class="p-4">
+          <img src="./assets/aboutche.png" alt="About Che" class="rounded-lg shadow-lg w-full object-cover transform transition duration-500 hover:scale-105">
+        </div>
+        <div class="p-4">
+          <div class="mb-6 animate-slide-in-right">
+            <h3 class="text-3xl font-bold mb-4 flex items-center font-serif">
+              <i class="fas fa-info-circle text-green-500 mr-2"></i>What Do We Do?
+            </h3>
+            <p class="text-lg leading-relaxed">This is a Uganda limited company aimed at catalyzing engineering innovations in Uganda, primarily focusing on medical device innovations locally made in Uganda.</p>
+          </div>
+          <div class="mb-6 animate-slide-in-right delay-100">
+            <h3 class="text-3xl font-bold mb-4 flex items-center font-serif">
+              <i class="fas fa-bullseye text-green-500 mr-2"></i>What Is Our Vision?
+            </h3>
+            <p class="text-lg leading-relaxed">To have locally created/invented devices or products available in the local market using local manufacturing means.</p>
+          </div>
+          <div class="animate-slide-in-right delay-200">
+            <h3 class="text-3xl font-bold mb-4 flex items-center font-serif">
+              <i class="fas fa-tasks text-green-500 mr-2"></i>What Are Our Objectives?
+            </h3>
+            <ul class="list-disc list-inside text-lg leading-relaxed">
+              <li class="mb-2 flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Self-sustaining system of medical devices in Uganda.</li>
+              <li class="mb-2 flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Path for on-shelf innovations to market.</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Support for translating prototypes to scalable products.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- About NeoNest Section -->
+<section id="about" class="py-20 bg-gray-100 min-h-screen">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12 text-orange-700 font">NeoNest</h2>
+    <div class="bg-white text-black rounded-lg p-8 shadow-lg">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div class="p-4 order-2 lg:order-1">
+          <div class="space-y-6">
+            <p class="text-lg text-gray-800 mb-4 animate-fade-in">NeoNest is a low-cost infant warmer designed to prevent preterm hypothermia during ambulance trips in low- and middle-income countries. Developed by Duke and Makerere Universities, it provides a reliable, portable, and affordable solution.</p>
+            <p class="text-lg text-gray-800 mb-4 animate-fade-in delay-100">NeoNest was developed during the Duke-Makerere Biomedical Engineering Fellowship, transforming an old shipping container into a makerspace for innovation.</p>
+            <p class="text-lg text-gray-800 mb-4 animate-fade-in delay-200">NeoNest is the first infant warmer designed for local ambulances, maintaining temperature for preterm infants during transport to national referral hospitals.</p>
+          </div>
+        </div>
+        <div class="p-4 order-1 lg:order-2">
+          <img src="./assets/Picture3.jpg" alt="NeoNest Device" class="rounded-lg shadow-lg w-full object-cover transform transition duration-500 hover:scale-105">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Problem Section -->
+  <section id="problem" class="bg-gray-200 py-20 min-h-screen">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-8 text-orange-700 font">The Problem</h2>
+      <div class="bg-white shadow-lg rounded-lg p-8 flex flex-col items-center">
+        <div class="lg:w-3/4 px-4 text-center lg:text-left mb-8 animate-fade-in">
+          <p class="text-lg text-gray-800 mb-4 leading-relaxed">Every 40 seconds, a premature baby dies, with 99% of these deaths occurring in low- and middle-income countries. In Kampala, at Kawempe National Referral Hospital (KNRH), one of Uganda’s largest referral centers, 40% of babies born and received are premature. These babies often arrive from rural villages 2-4 hours away, and during these long trips, there are no effective methods to keep them warm.</p>
+          <p class="text-lg text-gray-800 mt-4 leading-relaxed">Current solutions, such as placing gloves with warm water around the baby, are inefficient and insufficient. The standard of care in the United States for transport incubators costs well over $5,000 USD, making it inaccessible for many low-income countries.</p>
+        </div>
+        <div class="lg:w-3/4 bg-gradient-to-r from-purple-600 to-purple-800 text-white p-6 rounded-lg shadow-lg border-l-4 border-green-400 animate-slide-in-up">
+          <h3 class="text-2xl font-bold mb-4 text-center">Why This Matters</h3>
+          <p class="text-lg leading-relaxed">Preterm infants are highly vulnerable to hypothermia, which can lead to severe complications and even death. Addressing this issue with cost-effective solutions can significantly improve survival rates and health outcomes for these infants.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+<section id="solution" class="py-20 bg-cover bg-center bg-gray-100 bg-fixed" style="background-image: url('./assets/scroll4-transformed.png');">
+  <div class="container mx-auto bg-white bg-opacity-50 p-8 rounded-lg">
+    <h2 class="text-4xl font-bold text-center mb-12 text-orange-700 font">Our Solution</h2>
+    <div class="flex flex-wrap justify-center mt-8">
+      <div class="w-full sm:w-1/2 lg:w-1/3 p-4" data-aos="fade-up">
+        <div class="card p-6 hover:bg-orange-500 text-black bg-white hover:text-white transition duration-300 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-2 flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i> Stable Temperature
+          </h3>
+          <p class="text-lg">NeoNest maintains a consistent temperature between 36°C to 37°C for up to 4 hours, ensuring that preterm infants remain warm and safe during transport. This stable temperature is crucial for preventing hypothermia and improving survival rates.</p>
+        </div>
+      </div>
+      <div class="w-full sm:w-1/2 lg:w-1/3 p-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card p-6 hover:bg-orange-500 bg-white text-black hover:text-white transition duration-300 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-2 flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i> Portability
+          </h3>
+          <p class="text-lg">Our device is portable and lightweight, weighing less than 3 kg. This makes it easy to transport and handle, especially in emergency situations, ensuring that it can be quickly and efficiently deployed where it's needed most.</p>
+        </div>
+      </div>
+      <div class="w-full sm:w-1/2 lg:w-1/3 p-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card p-6 hover:bg-orange-500 bg-white text-black hover:text-white transition duration-300 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-2 flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i> Cost-Effective
+          </h3>
+          <p class="text-lg">With materials costing under $75, NeoNest is a cost-effective solution designed to be affordable for low- and middle-income countries. This cost efficiency ensures wider accessibility and deployment in resource-limited settings.</p>
+        </div>
+      </div>
+      <div class="w-full sm:w-1/2 lg:w-1/3 p-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card p-6 hover:bg-orange-500 bg-white text-black hover:text-white transition duration-300 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-2 flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i> Adjustability
+          </h3>
+          <p class="text-lg">NeoNest is adjustable to fit various infant sizes, providing a secure and comfortable environment for preterm babies. The adjustable design ensures that the warmer can be used for a wide range of infants, enhancing its versatility.</p>
+        </div>
+      </div>
+      <div class="w-full sm:w-1/2 lg:w-1/3 p-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="card p-6 hover:bg-orange-500 bg-white text-black hover:text-white transition duration-300 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-2 flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i> Safety
+          </h3>
+          <p class="text-lg">Designed for use in ambulances, NeoNest is safe and secure, ensuring that preterm infants are protected during transport. The device includes safety features that prevent overheating and ensure a stable, controlled environment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Impact Section -->
+<section id="impact" class="py-20 bg-gray-100">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12 text-orange-700 font">Our Impact</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div class="p-4 hidden-animation">
+        <img src="./assets/scroll4-transformed.png" alt="Impact Photo" class="rounded-lg shadow-lg w-full h-96 object-cover transform transition duration-500 hover:scale-105">
+      </div>
+      <div class="p-4 hidden-animation">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h3 class="text-3xl font-bold mb-4 text-orange-500">Current Use</h3>
+          <p class="text-lg leading-relaxed text-gray-800 mb-6">Currently a standalone component of our design, the nest is already being used at Kawempe National Referral Hospital for securing babies in the infant warmers.</p>
+          <h3 class="text-3xl font-bold mb-4 text-orange-500">Positive Outcomes</h3>
+          <p class="text-lg leading-relaxed text-gray-800">Our innovation is making a significant impact by providing a reliable, portable, and affordable solution for preterm infants, helping to prevent hypothermia during ambulance trips. This is improving survival rates and health outcomes for many infants in low- and middle-income countries.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Team Section -->
+  <section id="team" class="bg-gray-200 py-20">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-8 text-orange-700 font">Our Team</h2>
+      <div class="flex flex-wrap justify-center mb-12">
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-4">
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <img src="./assets/vivian2.jpg" alt="Vivian Arinaitwe" class="mx-auto mb-4 rounded-full w-32 h-32 object-cover">
+            <h3 class="text-xl font-bold mb-2 text-orange-700">Vivian Arinaitwe</h3>
+            <p class="text-gray-800">Biomedical Engineering, Makerere University</p>
+          </div>
+        </div>
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-4">
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <img src="./assets/joseph2.jpg" alt="Joseph Okileng" class="mx-auto mb-4 rounded-full w-32 h-32 object-cover">
+            <h3 class="text-xl font-bold mb-2 text-orange-700">Joseph Okileng</h3>
+            <p class="text-gray-800">Biomedical Engineering, Makerere University</p>
+          </div>
+        </div>
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-4">
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <img src="./assets/sophia.jpg" alt="Sophia Singer" class="mx-auto mb-4 rounded-full w-32 h-32 object-cover">
+            <h3 class="text-xl font-bold mb-2 text-orange-700">Sophia Singer</h3>
+            <p class="text-gray-800">Mechanical Engineering, Duke University</p>
+          </div>
+        </div>
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-4">
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <img src="./assets/saajan.jpg" alt="Saajan Patel" class="mx-auto mb-4 rounded-full w-32 h-32 object-cover">
+            <h3 class="text-xl font-bold mb-2 text-orange-700">Saajan Patel</h3>
+            <p class="text-gray-800">Biology and Global Health, Duke University</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Mentors Section -->
+<section id="mentors" class="py-20 bg-gray-100">
+  <div class="container mx-auto animate-slide-in-left animate-fade-in">
+    <h2 class="text-4xl font-bold text-center mb-8 text-orange-700 font">Our Mentors</h2>
+    <div class="bg-white text-black rounded-lg p-8 shadow-lg flex flex-col items-center">
+      <p class="text-lg text-gray-800 mt-6 text-center leading-relaxed">
+        Our mentors are a group of experienced professionals who provide guidance and support to help us achieve our mission. Their expertise and dedication are invaluable to our success.
+      </p>
+      
+    <div class="flex flex-wrap justify-center mb-12">
+      <div class="w-full sm:w-1/2 lg:w-1/4 p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./assets/pic 3.jpg" alt="Dr.Ssekitoleko Robert" class="mx-auto mb-4 rounded-full w-32 h-32 object-cover">
+          <h3 class="text-xl font-bold mb-2 text-orange-700">Dr.Ssekitoleko Robert</h3>
+          <p class="text-gray-800">Head of Biomedical Engineering<br> Makerere University <br>(Kampala, Uganda)</p>
+        </div>
+      </div>
+      <div class="w-full sm:w-1/2 lg:w-1/4 p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./assets/pic 2.jpg" alt="Dr.Ann Saterbak" class="mx-auto mb-4 rounded-full w-32 h-32 object-cover">
+          <h3 class="text-xl font-bold mb-2 text-orange-700">Dr.Ann Saterbak</h3>
+          <p class="text-gray-800">Professor of Biomedical Engineering<br> Duke University <br>(N. Carolina, USA)</p>
+        </div>
+      </div>
+      <div class="w-full sm:w-1/2 lg:w-1/4 p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./assets/pic 1.jpg" alt="Dr.Matovu Brian" class="mx-auto mb-4 rounded-full w-32 h-32 object-cover">
+          <h3 class="text-xl font-bold mb-2 text-orange-700">Dr.Matovu Brian</h3>
+          <p class="text-gray-800">Biomedical Engineer and Project Manager at Makerere University<br> Biomedical Engineer<br>(Kampala, Uganda)</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  </div>
+</section>
+
+   <!-- Partners Section -->
+<section id="partners" class="py-20 bg-gray-100 min-h-screen">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12 text-orange-700 font">Our Partners</h2>
+    <div class="flex flex-wrap justify-center">
+      <div class="w-1/2 sm:w-1/4 p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./Patnerss/patner1.png" alt="Makerere University" class="mx-auto h-32 object-contain">
+        </div>
+      </div>
+      <div class="w-1/2 sm:w-1/4 p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./Patnerss/partner2.png" alt="Duke University" class="mx-auto h-32 object-contain">
+        </div>
+      </div>
+      <div class="w-1/2 sm:w-1/4 p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./Patnerss/partner3.png" alt="Bbiri Electronics" class="mx-auto h-32 object-contain">
+        </div>
+      </div>
+      <div class="w-1/2 sm:w-1/4 p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./Patnerss/partner4.png" alt="ShiShi Manufacturing" class="mx-auto h-32 object-contain">
+        </div>
+      </div>
+      <div class="w-1/2 sm:w-1/4 p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./Patnerss/partner5.jpg" alt="Joint Medical Supplies" class="mx-auto h-32 object-contain">
+        </div>
+      </div>
+      <div class="w-1/2 sm:w-1/4 p-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./Patnerss/partner7.jpg" alt="Partner 7" class="mx-auto h-32 object-contain">
+        </div>
+      </div>
+  
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact Section -->
+<section id="contact" class="py-20">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-8 text-orange-700 font">Contact Us</h2>
+      <div class="flex flex-wrap justify-center">
+        <div class="w-full md:w-1/2 p-4">
+          <div class="bg-white p-6 rounded-lg shadow-lg h-full">
+            <h3 class="text-xl font-bold mb-2">Contact Information</h3>
+            <p class="mb-4"><i class="fas fa-map-marker-alt mr-2 text-orange-700"></i><strong></strong> Upper Hill Mulago, College Of Health Sciences, P.O Box 7062, Kampala Uganda</p>
+            <p class="mb-4"><i class="fas fa-phone-alt mr-2 text-orange-700"></i><strong></strong> +256 778 526 594 / +256 752 465 308</p>
+            <p class="mb-4"><i class="fas fa-envelope mr-2 text-orange-700"></i><strong></strong> cheinnovationsuganda@gmail.com</p>
+            <h3 class="text-xl font-bold mt-4 mb-2">Our Social Media Platforms</h3>
+            <div class="flex space-x-4">
+              <a href="https://www.facebook.com/profile.php?id=61561968205266" class="hover:text-gray-500"><i class="fab fa-facebook-square text-2xl text-orange-700"></i></a>
+              <a href="https://x.com/CheInnovations" class="hover:text-gray-500"><i class="fab fa-twitter text-2xl text-orange-700"></i></a>
+              <a href="https://www.instagram.com/che_innovations?igsh=YzljYTk1ODg3Zg==" class="hover:text-gray-500"><i class="fab fa-instagram-square text-2xl text-orange-700"></i></a>
+              <a href="https://www.linkedin.com/company/che-innovations" class="hover:text-gray-500"><i class="fab fa-linkedin text-2xl text-orange-700"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 p-4">
+          <div class="bg-white p-6 rounded-lg shadow-lg h-full">
+            <h3 class="text-xl font-bold mb-2">Contact Form</h3>
+            <form>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="name"><i class="fas fa-user mr-2 text-orange-700"></i>Name</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email"><i class="fas fa-envelope mr-2 text-orange-700"></i>Email</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Your Email">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="message"><i class="fas fa-comment-dots mr-2 text-orange-700"></i>Message</label>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="4" placeholder="Your Message"></textarea>
+              </div>
+              <div class="text-center">
+                <button class="bg-orange-700 text-white py-2 px-4 rounded hover:bg-black" type="submit">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+
+ <!-- Footer -->
+ <footer class="bg-gradient-to-r from-orange-700 text-black py-8">
+  <div class="container mx-auto flex flex-wrap justify-between">
+    <div class="w-full lg:w-1/3 p-4">
+      <h3 class="text-lg font-semibold mb-4">Che Innovations Uganda Limited</h3>
+      <div class="flex space-x-4">
+        <a href="https://www.facebook.com/profile.php?id=61561968205266" class="hover:text-gray-300"><i class="fab fa-facebook-square text-2xl"></i></a>
+        <a href="https://x.com/CheInnovations" class="hover:text-gray-300"><i class="fab fa-twitter-square text-2xl"></i></a>
+        <a href="https://www.instagram.com/che_innovations?igsh=YzljYTk1ODg3Zg==" class="hover:text-gray-300"><i class="fab fa-instagram-square text-2xl"></i></a>
+        <a href="https://www.linkedin.com/company/che-innovations" class="hover:text-gray-300"><i class="fab fa-linkedin text-2xl"></i></a>
+      </div>
+    </div>
+    <div class="w-full lg:w-1/3 p-4">
+      <h3 class="text-lg font-semibold mb-4">Navigation</h3>
+      <ul class="flex flex-col space-y-2 text-sm">
+        <li><a href="#about-us" class="hover:text-green-400">About</a></li>
+        <li><a href="#problem" class="hover:text-green-400">Problem</a></li>
+        <li><a href="#solution" class="hover:text-green-400">Solution</a></li>
+        <li><a href="#team" class="hover:text-green-400">Team</a></li>
+        <li><a href="#partners" class="hover:text-green-400">Partners</a></li>
+        <li><a href="#contact" class="hover:text-green-400">Contact</a></li>
+      </ul>
+    </div>
+    <div class="w-full lg:w-1/3 p-4">
+      <h3 class="text-lg font-semibold mb-4">Contact</h3>
+      <p class="text-sm"><strong>Address:</strong> Upper Hill Mulago, College Of Health Sciences, P.O Box 7062, Kampala Uganda</p>
+      <p class="text-sm"><strong>Phone:</strong> +256 778 526 594 / +256 752 465 308</p>
+      <p class="text-sm"><strong>Email:</strong> cheinnovationsuganda@gmail.com</p>
+    </div>
+  </div>
+  <div class="text-center mt-8">
+    <p class="text-sm">&copy; 2024 Che Innovations Uganda Limited. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+ 
+
+  const heroSection = document.getElementById('hero');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        addAnimations();
+      } else {
+        removeAnimations();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  function addAnimations() {
+    heroSection.querySelector('h1').classList.add('animate-slide-in-left');
+    heroSection.querySelectorAll('p').forEach(p => p.classList.add('animate-fade-in-delay'));
+    heroSection.querySelector('img').classList.add('animate-bounce-in');
+  }
+
+  function removeAnimations() {
+    heroSection.querySelector('h1').classList.remove('animate-slide-in-left');
+    heroSection.querySelectorAll('p').forEach(p => p.classList.remove('animate-fade-in-delay'));
+    heroSection.querySelector('img').classList.remove('animate-bounce-in');
+  }
+
+  observer.observe(heroSection);
+
+  document.getElementById('navbar-toggle').addEventListener('click', function() {
+    var menu = document.getElementById('navbar-menu');
+    var icon = document.getElementById('menu-icon');
+    if (menu.classList.contains('hidden')) {
+      menu.classList.remove('hidden');
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    } else {
+      menu.classList.add('hidden');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const problemSection = document.getElementById('problem');
+    const problemElement = problemSection.querySelector('.animate-slide-in-up');
+    const problemObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          problemElement.classList.add('animate-slide-in-up');
+        } else {
+          problemElement.classList.remove('animate-slide-in-up');
+        }
+      });
+    }, { threshold: 0.5 });
+    problemObserver.observe(problemSection);
+  });
+  AOS.init({
+    duration: 1000
+  });
+  document.getElementById('neo-dropdown').addEventListener('click', function() {
+      var menu = document.getElementById('neo-menu');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+      }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      const observerOptions = {
+        threshold: 0.5
+      };
+
+      const elementsToAnimate = document.querySelectorAll('.hidden-animation');
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(entry.target.classList.contains('p-4') ? 'animate-slide-in-left' : 'animate-fade-in');
+            entry.target.classList.remove('hidden-animation');
+            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.add('hidden-animation');
+            entry.target.classList.remove('animate-slide-in-left', 'animate-fade-in');
+          }
+        });
+      }, observerOptions);
+
+      elementsToAnimate.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
+
+ 
+
+  
+
+
+</script>
+</body>
+</html>
